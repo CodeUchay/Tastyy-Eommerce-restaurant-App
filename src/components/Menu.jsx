@@ -7,7 +7,7 @@ function Menu() {
   const [foods, setFoods] = useState(food);
 
   return (
-    <div class="container mt-24 lg:mt-12 mx-auto p-5 ">
+    <div class="container mt-28 lg:mt-12 mx-auto p-5 ">
     <div className="px-6 lg:mx-5 lg:mt-6">
       {/*Header*/}
       <div className="flex justify-between items-center">

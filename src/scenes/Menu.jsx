@@ -24,7 +24,7 @@ function Menu() {
     );
   };
   return (
-    <div className=" m-8 pt-16 lg:p-16 ">
+    <div className=" m-8 mt-24 pt-16 lg:p-16 ">
       <div className=" text-3xl font-bold text-center lg:text-4xl pb-5 border-b-2 border-red-500">
         <h1>
           Chef Kim's <span className="text-orange-500">Menu </span>{" "}

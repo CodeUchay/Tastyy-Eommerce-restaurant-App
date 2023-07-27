@@ -12,7 +12,7 @@ const Checkout = () => {
   const cartItemDetails = getCartItemDetails();
 
   return (
-    <div class="container relative mx-auto p-5 ">
+    <div class="container relative mt-24 lg:mt-6 mx-auto p-5 ">
       <div className="px-6 lg:mx-5 lg:mt-6">
         {/*Header*/}
         <h1 className="font-bold text-2xl lg:text-3xl p-5 text-left">

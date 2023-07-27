@@ -51,7 +51,7 @@ function Navbar() {
                 className="text-white rounded-full bg-gradient-to-r  from-orange-400 to-red-400"
               />
               
-        <img src={tastylogo} style={{ width:  '80px', height: 'auto' }} alt="Tastyy Logo" />
+        <img src={tastylogo} style={{ marginTop: '10px', width:  '50px', height: 'auto' }} alt="Tastyy Logo" />
             </Link>
           </div>
           {/* Search & Cart Container */}
@@ -102,12 +102,14 @@ function Navbar() {
             size={30}
             className="absolute right-4 top-4 cursor-pointer "
           />
-          <div className="flex  items-center flex-row">
-            <h2 className="font-bold text-2xl p-4">Tasty</h2>
-            <FaFire
+          <div className="flex  items-center flex-row p-5 gap-1">
+           <FaFire
               size={30}
               className="text-white rounded-full bg-gradient-to-r  from-orange-400 to-red-400"
             />
+            <img src={tastylogo} style={{ marginTop: '10px', width:  '50px', height: 'auto' }} alt="Tastyy Logo" />
+         
+           
           </div>
           <nav>
             <ul className="flex flex-col p-4 ">

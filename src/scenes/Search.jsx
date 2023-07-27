@@ -22,7 +22,7 @@ function Search() {
   }, [params.search]); //to update everytime we search
 
   return (
-    <div class="container mt-24 lg:mt-12 mx-auto p-5 ">
+    <div class="container mt-32 lg:mt-12 mx-auto p-5 ">
       <div className="px-6 lg:mx-5 lg:mt-6">
         {/*Header*/}
         <div className="flex justify-start items-center gap-2">
