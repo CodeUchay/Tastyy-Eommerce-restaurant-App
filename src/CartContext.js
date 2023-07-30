@@ -33,42 +33,49 @@ export function CartProvider({ children }) {
   };
 
   const getCartItemDetails = () => {
+    const groupedItems = {};
+    
+    // Group the items by their ID and calculate the total quantity for each item
     if (oldCartData) {
-      // If the "oldcart" item exists in localStorage, return the parsed array
       const oldStorageCartItems = JSON.parse(oldCartData);
-      const cartItems = oldStorageCartItems.map(item => {
-        const { id } = item;
-        const cartItem = food.find(item => item.id === id);
-        return {
-          id: id,
-          name: cartItem.name,
-          category: cartItem.category,
-          image: cartItem.image,
-          price: cartItem.price,
-        };
-      }); 
-      return cartItems;
+      oldStorageCartItems.forEach((item) => {
+        const itemId = item.id;
+        if (groupedItems[itemId]) {
+          groupedItems[itemId].quantity += 1;
+        } else {
+          const cartItem = food.find((foodItem) => foodItem.id === itemId);
+          groupedItems[itemId] = {
+            ...cartItem,
+            quantity: 1,
+          };
+        }
+      });
     } else {
       // If the "oldcart" item doesn't exist, fetch cart item details from the "food" array
-      const cartItems = items.map(item => {
-        const { id } = item;
-        const cartItem = food.find(item => item.id === id);
-  
-        return {
-          id: id,
-          name: cartItem.name,
-          category: cartItem.category,
-          image: cartItem.image,
-          price: cartItem.price,
-        };
+      items.forEach((item) => {
+        const itemId = item.id;
+        if (groupedItems[itemId]) {
+          groupedItems[itemId].quantity += 1;
+        } else {
+          const cartItem = food.find((foodItem) => foodItem.id === itemId);
+          groupedItems[itemId] = {
+            ...cartItem,
+            quantity: 1,
+          };
+        }
       });
   
-      // Store the cartItems array as JSON in the "oldcart" item of localStorage
+      // Store the grouped items as an array in the "oldcart" item of localStorage
+      const cartItems = Object.values(groupedItems);
       localStorage.setItem('oldcart', JSON.stringify(cartItems));
-  
-      return cartItems; // Return the cart items array
     }
+  
+    // Convert the grouped items object into an array and return it
+    const cartItems = Object.values(groupedItems);
+  
+    return cartItems;
   };
+  
   
 
   return (

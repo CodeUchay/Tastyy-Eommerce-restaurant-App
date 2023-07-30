@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CartContext from "../CartContext";
 import { AiOutlineClose } from "react-icons/ai";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const { items, removeFromCart, getCartItemDetails } = useContext(CartContext);
@@ -25,23 +25,26 @@ const Checkout = () => {
           <div>
             <p className="m-4 p-5 ">No items in cart... </p>
             <div className="flex justify-center items-center mt-5 p-3 ">
-            <Link to="/menu" className="flex justify-center items-center p-2 rounded-lg cursor-pointer hover:bg-orange-100 hover:shadow-sm text-orange-500">
-              <div className="">View All Menu</div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-7 w-5 ml-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <Link
+                to="/menu"
+                className="flex justify-center items-center p-2 rounded-lg cursor-pointer hover:bg-orange-100 hover:shadow-sm text-orange-500"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </Link>
+                <div className="">View All Menu</div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-5 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </Link>
             </div>
           </div>
         ) : (
@@ -54,17 +57,26 @@ const Checkout = () => {
                     key={item.id}
                     className="flex flex-row gap-3 p-4 border-b-gray-400 justify-between items-center"
                   >
-                    <div>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-16 h-16 mr-4"
-                      />
-                    </div>
-                    <div className="flex justify-start items-center gap-1">
-                      <h3 className="text-sm">{item.name + ":"}</h3>
-                      <p className="text-sm font-bold">${item.price}</p>
-                    </div>
+                    <div className="flex justify-between border ">
+                      <div className="flex border">
+                      <div>
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-16 h-16 mr-4"
+                        />
+                      </div>
+                      <div className="flex justify-start items-center gap-1">
+                        <h3 className="text-sm">
+                          {item.name}
+                          <span className="text-xs font-semibold">
+                            x{item.quantity}
+                          </span>
+                          :
+                        </h3>
+                        <p className="text-sm font-bold">${item.price}</p>
+                      </div>
+                      </div>
                     <div
                       onClick={() => handleRemoveFromCart(item.id)}
                       className="p-3 rounded-full cursor-pointer hover:bg-red-600 hover:text-white"
@@ -72,7 +84,7 @@ const Checkout = () => {
                       <AiOutlineClose className="">
                         Remove from Cart
                       </AiOutlineClose>
-                    </div>
+                    </div></div>
                   </div>
                 ))}
               </div>

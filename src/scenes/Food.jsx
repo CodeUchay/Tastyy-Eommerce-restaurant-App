@@ -24,7 +24,7 @@ function Food() {
   const [addedItem, setAddedItem] = useState(false);
 
   const handleAddToCart = () => {
-    addToCart(foodId);
+    addToCart(parseInt(foodId));
     setAddedItem(true);
 
     setTimeout(() => {

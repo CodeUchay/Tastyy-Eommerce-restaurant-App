@@ -11,6 +11,7 @@ function Category() {
   const [foods, setFoods] = useState(food);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setCategory(params.category);
     setFoods(
       food.filter((item) => {

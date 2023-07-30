@@ -7,7 +7,9 @@ const FoodCard = ({ item }) => {
   const [addedItem, setAddedItem] = useState(false);
   const navigate = useNavigate();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    // To prevent the navigation to menu/id when the "Add to Cart" button is clicked
+    e.stopPropagation(); 
     addToCart(item.id);
     setAddedItem(true);
 
@@ -15,6 +17,7 @@ const FoodCard = ({ item }) => {
       setAddedItem(false);
     }, 1500);
   };
+  
   const handleFoodClick = () => {
     navigate(`/menu/${item.id}`);
   };
