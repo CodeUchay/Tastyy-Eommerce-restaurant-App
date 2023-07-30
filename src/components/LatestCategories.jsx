@@ -6,9 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 // It slices just the first 4 array of categories
 function LatestCategories() {
   const navigate = useNavigate();
-const handleCategoryClick = (category)
-=> {
-navigate(/categories/${category});
+const handleCategoryClick = (category) => {
+navigate(`/categories/${category}`);
 }
   return (
     <div class="container relative mx-auto p-5 ">
