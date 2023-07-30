@@ -1,7 +1,6 @@
 import React from "react";
 import { FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -16,7 +15,7 @@ function Footer() {
           <div>
             <p className="py-4">
               Lorem, ipsum dolor sit amet consectetur{" "}
-              <span className="text-orange-500">Chef Kim</span> elit. Id odit
+              <span className="text-orange-500">Tastyy Restaurant</span> elit. Id odit
               ullam iste repellat consequatur libero reiciendis, blanditiis
               accusantium.
             </p>
@@ -64,9 +63,6 @@ function Footer() {
                 <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
                   <Link to="/categories">Categories</Link>
                 </li>
-                <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
-                  <Link to="/">Partners</Link>
-                </li>
               </ul>
             </div>
             <div>
@@ -80,9 +76,6 @@ function Footer() {
                 </li>
                 <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
                   Ts&Cs
-                </li>
-                <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
-                  Contact
                 </li>
               </ul>
             </div>

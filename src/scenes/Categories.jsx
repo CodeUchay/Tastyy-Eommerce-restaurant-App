@@ -14,7 +14,7 @@ function Categories() {
       <div className="px-6 lg:mx-5 lg:mt-6">
         {/*Header*/}
         <h1 className="font-bold text-2xl lg:text-3xl p-5 text-left">
-        Please <span className="text-orange-500">Select</span> your favorite category!
+        Our <span className="text-orange-500">Categories</span>
         </h1>
         <hr />
       </div>

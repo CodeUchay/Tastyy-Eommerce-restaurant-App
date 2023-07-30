@@ -1,5 +1,6 @@
 import React from "react";
 import { categories } from "../data/data.js";
+import { Link } from 'react-router-dom';
 
 // This is just to show the latest categories on the homepage.
 // It slices just the first 4 array of categories
@@ -13,12 +14,12 @@ function LatestCategories() {
       <h1 className="font-bold text-2xl lg:text-3xl text-left">
           Popular <span className="text-orange-500">Categories</span>
         </h1>
-        <div className="flex justify-center items-center p-1 cursor-pointer hover:shadow-sm text-orange-500">
+        <Link to="/categories" className="flex justify-center items-center p-1 cursor-pointer hover:shadow-sm text-orange-500">
         <div className="">View All</div>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-          </div>
+          </Link>
       </div>
       <hr className="my-6"></hr>
         {/* Categories */}

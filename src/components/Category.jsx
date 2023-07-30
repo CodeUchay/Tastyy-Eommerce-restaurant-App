@@ -3,8 +3,8 @@ import { food } from "../data/data";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FoodCard from "../components/FoodCard";
-import { Link } from "react-router-dom";
 
+//To show each category of the different categories
 function Category() {
   const [category, setCategory] = useState([]);
   let params = useParams();

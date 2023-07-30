@@ -4,16 +4,12 @@ import {
   AiOutlineMenu,
   AiOutlineSearch,
   AiOutlineClose,
-  AiFillQuestionCircle,
 } from "react-icons/ai";
 import { FaFire } from "react-icons/fa";
 import { BsFillCartFill } from "react-icons/bs";
 import {
   MdOutlineRestaurantMenu,
   MdCategory,
-  MdBusinessCenter,
-  MdFormatAlignLeft,
-  MdContactPage,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import CartContext from "../CartContext";
@@ -138,47 +134,6 @@ function Navbar() {
                   className="flex justify-between items-center "
                 >
                   <MdCategory size={25} className="mr-4" /> Categories
-                </Link>
-              </li>
-              <li
-                onClick={() => setNav(!nav)}
-                className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
-              >
-                <Link
-                  to="/about"
-                  className="flex justify-between items-center "
-                >
-                  <MdBusinessCenter size={25} className="mr-4" /> About
-                </Link>
-              </li>
-              <li
-                onClick={() => setNav(!nav)}
-                className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
-              >
-                <Link to="faq" className="flex justify-between items-center ">
-                  <AiFillQuestionCircle size={25} className="mr-4" /> FAQ
-                </Link>
-              </li>
-              <li
-                onClick={() => setNav(!nav)}
-                className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
-              >
-                <Link
-                  to="termsandconditions"
-                  className="flex justify-between items-center "
-                >
-                  <MdFormatAlignLeft size={25} className="mr-4" /> Ts&Cs
-                </Link>
-              </li>
-              <li
-                onClick={() => setNav(!nav)}
-                className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
-              >
-                <Link
-                  to="/contact"
-                  className="flex justify-between items-center "
-                >
-                  <MdContactPage size={25} className="mr-4" /> Contact
                 </Link>
               </li>
             </ul>
