@@ -34,7 +34,7 @@ function Search() {
         </div>
         <hr className="my-6"></hr>
         {results.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:m-5 lg:p-8 gap-6 pt-4 bg-transparent rounded-2xl ">
+          <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-4 lg:m-5 lg:p-8 gap-6 pt-4 bg-transparent rounded-2xl ">
           {results.map((item, index) => (
             <FoodCard key={index} item={item} />
           ))}
