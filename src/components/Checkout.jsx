@@ -1,16 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import CartContext from "../CartContext";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const { items, removeFromCart, getCartItemDetails } = useContext(CartContext);
+  const { items, removeFromCart, getCartItemDetails, clearCart } = useContext(CartContext);
 
   const handleRemoveFromCart = (id) => {
     removeFromCart(id);
   };
 
   const cartItemDetails = getCartItemDetails();
+
+  const handleClearAll = () => {
+    clearCart();
+    localStorage.removeItem("oldcart"); // Clear cart items from local storage
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container relative mt-24 lg:mt-6 mx-auto p-5 ">
@@ -48,43 +57,45 @@ const Checkout = () => {
             </div>
           </div>
         ) : (
-          <div className="m-5 flex flex-col justify-between items-center  lg:flex-row">
+          <div className="m-5 flex flex-col justify-between items-center lg:items-start lg:flex-row">
             {/* Cart */}
             <div className="p-0 m-0">
-              <div className="flex flex-col justify-center items-center border border-black">
+              <div className="flex flex-col justify-center items-center ">
                 {cartItemDetails.map((item) => (
                   <div
                     key={item.id}
-                    className="flex flex-row gap-3 p-4 border-b-gray-400 justify-between items-center"
+                    className="flex flex-row gap-3 justify-center items-center p-4 border-b-gray-100"
                   >
-                    <div className="flex justify-between border ">
+                    <div className="flex  justify-between items-center border border-gray-100">
                       <div className="flex border">
-                      <div>
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-16 h-16 mr-4"
-                        />
+                        <div>
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-16 h-16 mr-4"
+                          />
+                        </div>
+                        <div className="flex justify-start items-center gap-4 ">
+                          <div className="flex flex-col">
+                            <h3 className="text-sm">
+                              {item.name}
+                            </h3>
+                            <span className="text-xs font-semibold">
+                                x{item.quantity}
+                              </span>
+                          </div>
+                          <p className="text-sm w-16 font-bold">${item.price}</p>
+                        </div>
                       </div>
-                      <div className="flex justify-start items-center gap-1">
-                        <h3 className="text-sm">
-                          {item.name}
-                          <span className="text-xs font-semibold">
-                            x{item.quantity}
-                          </span>
-                          :
-                        </h3>
-                        <p className="text-sm font-bold">${item.price}</p>
+                      <div
+                        onClick={() => handleRemoveFromCart(item.id)}
+                        className="m-1 p-2 rounded-full cursor-pointer hover:bg-red-600 hover:text-white"
+                      >
+                        <AiOutlineClose className="">
+                          Remove from Cart
+                        </AiOutlineClose>
                       </div>
-                      </div>
-                    <div
-                      onClick={() => handleRemoveFromCart(item.id)}
-                      className="p-3 rounded-full cursor-pointer hover:bg-red-600 hover:text-white"
-                    >
-                      <AiOutlineClose className="">
-                        Remove from Cart
-                      </AiOutlineClose>
-                    </div></div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -93,7 +104,7 @@ const Checkout = () => {
               <div className="flex p-5">
                 <div className="flex rounded-full gap-2 ">
                   <input
-                    className="border border-gray-400 rounded-lg p-3 w-full focus:outline-none  placeholder-gray-300"
+                    className="border border-gray-400 rounded-lg p-1 w-full focus:outline-none  placeholder-gray-300"
                     type="text"
                     placeholder="Discount Voucher..."
                   />
@@ -108,9 +119,18 @@ const Checkout = () => {
                 <h3 className="">Total:</h3>
                 <p className="text-2xl font-bold">${100}</p>
               </div>
+               {/* Clear all */}
+            <div className="mt-3">
+                  <button  
+                  onClick={handleClearAll}
+                  className="border border-red-500 py-1 text-red-500 rounded-lg px-4  hover:bg-red-500 hover:text-white hover:border-none">
+                    Clear All
+                  </button>
+                </div>
             </div>
+           
             {/* Shipping */}
-            <div className="mt-5 p-5 border border-black">
+            <div className="mt-5 p-5 border border-gray-200">
               <h1 className="font-bold mb-2">Shipping:</h1>
               <div class="mb-3">
                 <label class="text-gray-600 font-semibold text-sm mb-2 ml-1">

@@ -108,33 +108,38 @@ function Navbar() {
           </div>
           <nav>
             <ul className="flex flex-col p-4 ">
-              <li
+              <Link to="/"><li
                 onClick={() => setNav(!nav)}
                 className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
               >
-                <Link to="/" className="flex justify-between items-center ">
+                <div  className="flex justify-between items-center ">
                   <AiFillHome size={25} className="mr-4 " /> Home
-                </Link>
+                </div>
               </li>
+              </Link>
+              <Link to="/menu">
               <li
                 onClick={() => setNav(!nav)}
                 className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
               >
-                <Link to="/menu" className="flex justify-between items-center ">
+                <div className="flex justify-between items-center ">
                   <MdOutlineRestaurantMenu size={25} className="mr-4" /> Menu
-                </Link>
+                </div>
               </li>
+              </Link>
+              <Link  to="/categories">
               <li
                 onClick={() => setNav(!nav)}
                 className="text-xl py-4 px-5 flex cursor-pointer hover:bg-orange-300 hover:rounded-sm"
               >
-                <Link
-                  to="/categories"
+                <div
+                 
                   className="flex justify-between items-center "
                 >
                   <MdCategory size={25} className="mr-4" /> Categories
-                </Link>
+                </div>
               </li>
+              </Link>
             </ul>
           </nav>
         </div>

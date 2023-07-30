@@ -31,10 +31,13 @@ export function CartProvider({ children }) {
       localStorage.setItem('oldcart', JSON.stringify(updatedCart));
     }
   };
+  const clearCart = () => {
+    setItems([]);
+  };
 
   const getCartItemDetails = () => {
     const groupedItems = {};
-    
+
     // Group the items by their ID and calculate the total quantity for each item
     if (oldCartData) {
       const oldStorageCartItems = JSON.parse(oldCartData);
@@ -79,7 +82,7 @@ export function CartProvider({ children }) {
   
 
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, getCartItemDetails }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart, getCartItemDetails, clearCart }}>{children}</CartContext.Provider>
   );
 }
 
