@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { food,  } from "../data/data.js";
-import FoodCard from "../components/FoodCard.jsx";
+import FoodCard from "./FoodCard.jsx";
 
-function Menu() {
-  //   console.log(food);
+// This is just to show the latest menu on the homepage.
+// It slices just the last 4 array of food
+function LatestMenu() {
+  
   const [foods, setFoods] = useState(food);
 
   return (
@@ -25,8 +27,8 @@ function Menu() {
       {/* Menu container*/}
       <div className="bg-white rounded p-6 lg:p-0">
       {/* Display foods */}
-      <div className="grid grid-cols lg:grid-cols-3 lg:m-5 lg:p-8 gap-6 bg-transparent rounded-2xl">
-        {foods.slice(-3).map((item, index) => (
+      <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 lg:m-5 lg:p-8 gap-6 bg-transparent rounded-2xl">
+        {foods.slice(-4).map((item, index) => (
           <FoodCard key={index} item={item} />
         ))}
       </div>
@@ -36,4 +38,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default LatestMenu;

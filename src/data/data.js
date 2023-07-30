@@ -121,7 +121,7 @@ export const food = [
     },
     {
       id: 16,
-      name: 'Chicken Kabob',
+      name: 'Chicken Kebab',
       category: 'chicken',
       image:
         'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNoaWNrZW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
@@ -132,7 +132,7 @@ export const food = [
   export const categories = [
     {
       id: 1,
-      name: 'Fast Food',
+      name: 'Chicken',
       image:
         'https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/FastFood_BrowseHome@3x.png',
     },
@@ -150,19 +150,19 @@ export const food = [
     },
     {
       id: 4,
-      name: 'Indian',
+      name: 'Salad',
       image:
         'https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/Indian_BrowseHome@3x.png',
     },
     {
       id: 5,
-      name: 'Latest Deals',
+      name: 'Latest_Deals',
       image:
         'https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/Deals_BrowseHome@3x.png',
     },
     {
       id: 6,
-      name: 'Restaurant Rewards',
+      name: 'Restaurant_Rewards',
       image:
         'https://duyt4h9nfnj50.cloudfront.net/new_search_home_eats_icon/RestoRewards_BrowseHome@3x.png',
     },

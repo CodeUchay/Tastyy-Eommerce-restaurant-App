@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div class="container mx-auto p-5 text-black ">
-      <div className="p-6">
+    <div className="container mt-24 lg:mt-6 mx-auto p-5 ">
+      <div className="px-6 lg:mx-5 lg:mt-6">
         <h1 className="text-grey-600 font-bold text-2xl lg:text-3xl text-left">
           Quick <span className="text-orange-500">Links</span>
         </h1>

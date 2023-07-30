@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FoodCard from "../components/FoodCard";
 import { LiaSearchSolid } from "react-icons/lia";
+import { Link } from 'react-router-dom';
 
 function Search() {
   const [results, setResults] = useState([]);
@@ -33,7 +34,7 @@ function Search() {
         </div>
         <hr className="my-6"></hr>
         {results.length > 0 ? (
-          <div className="grid grid-cols-2 lg:grid-cols-4 lg:m-5 lg:p-8 gap-6 pt-4 bg-transparent rounded-2xl ">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:m-5 lg:p-8 gap-6 pt-4 bg-transparent rounded-2xl ">
           {results.map((item, index) => (
             <FoodCard key={index} item={item} />
           ))}
@@ -45,7 +46,7 @@ function Search() {
         )}
         <div>
           <div className="flex justify-center items-center mt-5 p-3 ">
-            <div className="flex justify-center items-center p-2 rounded-lg cursor-pointer hover:bg-orange-100 hover:shadow-sm text-orange-500">
+          <Link to="/menu" className="flex justify-center items-center p-2 rounded-lg cursor-pointer hover:bg-orange-100 hover:shadow-sm text-orange-500">
               <div className="">View All Menu</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +62,7 @@ function Search() {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

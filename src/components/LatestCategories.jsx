@@ -1,8 +1,10 @@
 import React from "react";
 import { categories } from "../data/data.js";
 
-function Categories() {
-  console.log(categories);
+// This is just to show the latest categories on the homepage.
+// It slices just the first 4 array of categories
+function LatestCategories() {
+  
   return (
     <div class="container relative mx-auto p-5 ">
     <div className="px-6 lg:mt-6">
@@ -21,7 +23,7 @@ function Categories() {
       <hr className="my-6"></hr>
         {/* Categories */}
         <div className="m-5 lg:m-10 lg:p-8 grid grid-cols md:grid-cols-3 gap-6 py-6 ">
-          {categories.slice(0,3).map((item, index) => (
+          {categories.slice(0,4).map((item, index) => (
             <div
               key={index}
               className="bg-orange-200 cursor-pointer rounded-lg p-4 flex justify-between items-center hover:scale-105 duration-500 lg:flex-col lg:h-[200px] lg:justify-center lg:items-center"
@@ -37,4 +39,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default LatestCategories;

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Menu from "../components/Menu";
-import Categories from "../components/Categories";
+import LatestMenu from "../components/LatestMenu";
+import Categories from "../components/LatestCategories";
 
 function Home() {
   return (
     <>
-    <Menu/>
+    <LatestMenu/>
     <Categories/>
     </>
   );

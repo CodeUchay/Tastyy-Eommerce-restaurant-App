@@ -6,6 +6,7 @@ import Home from "./scenes/Home";
 import Menu from "./scenes/Menu";
 import Search from "./scenes/Search";
 import Categories from "./scenes/Categories";
+import Category from "./components/Category";
 import { Route, Routes } from "react-router-dom";
 import { CartProvider } from './CartContext';
 
@@ -17,6 +18,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/categories" element={<Categories />} />
+        {/* main category and category type */}
+        <Route path="/categories/:category" element={<Category />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/search/:search" element={<Search />} />
       </Routes>
