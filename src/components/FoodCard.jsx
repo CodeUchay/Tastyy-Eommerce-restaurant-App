@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../CartContext";
+import { useNavigate } from "react-router-dom";
 
 const FoodCard = ({ item }) => {
   const { addToCart } = useContext(CartContext);
   const [addedItem, setAddedItem] = useState(false);
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     addToCart(item.id);
@@ -13,9 +15,11 @@ const FoodCard = ({ item }) => {
       setAddedItem(false);
     }, 1500);
   };
-
+  const handleFoodClick = () => {
+    navigate(`/menu/${item.id}`);
+  };
   return (
-    <div className="cursor-pointer rounded-2xl hover:shadow-ll shadow-red-100 hover:shadow-red-200  shadow-lg">
+    <div onClick={handleFoodClick} className="cursor-pointer rounded-2xl hover:shadow-ll shadow-red-100 hover:shadow-red-200  shadow-lg">
       {/* food container */}
       <div className="">
         <img

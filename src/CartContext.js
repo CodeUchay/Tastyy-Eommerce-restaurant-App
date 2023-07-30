@@ -33,15 +33,12 @@ export function CartProvider({ children }) {
   };
 
   const getCartItemDetails = () => {
-    
-  
     if (oldCartData) {
       // If the "oldcart" item exists in localStorage, return the parsed array
       const oldStorageCartItems = JSON.parse(oldCartData);
       const cartItems = oldStorageCartItems.map(item => {
         const { id } = item;
         const cartItem = food.find(item => item.id === id);
-  
         return {
           id: id,
           name: cartItem.name,

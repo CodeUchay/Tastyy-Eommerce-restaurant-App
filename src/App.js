@@ -6,7 +6,8 @@ import Home from "./scenes/Home";
 import Menu from "./scenes/Menu";
 import Search from "./scenes/Search";
 import Categories from "./scenes/Categories";
-import Category from "./components/Category";
+import Category from "./scenes/Category";
+import Food from "./scenes/Food";
 import { Route, Routes } from "react-router-dom";
 import { CartProvider } from './CartContext';
 
@@ -17,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        {/* main menu and single menu */}
+        <Route path="/menu/:id" element={<Food />} />
         <Route path="/categories" element={<Categories />} />
         {/* main category and category type */}
         <Route path="/categories/:category" element={<Category />} />

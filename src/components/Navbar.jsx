@@ -5,8 +5,7 @@ import {
   AiOutlineSearch,
   AiOutlineClose,
 } from "react-icons/ai";
-import { FaFire } from "react-icons/fa";
-import { BsFillCartFill } from "react-icons/bs";
+import { FaFire, FaShoppingCart } from "react-icons/fa";
 import {
   MdOutlineRestaurantMenu,
   MdCategory,
@@ -47,7 +46,7 @@ function Navbar() {
                 className="text-white rounded-full bg-gradient-to-r  from-orange-400 to-red-400"
               />
               
-        <img src={tastylogo} style={{ marginTop: '10px', width:  '50px', height: 'auto' }} alt="Tastyy Logo" />
+        <img src={tastylogo} style={{ marginTop: '5px', width:  '70px', height: 'auto' }} alt="Tastyy Logo" />
             </Link>
           </div>
           {/* Search & Cart Container */}
@@ -67,15 +66,15 @@ function Navbar() {
               />
             </form>
             {/* Cart container */}
-            <div className="bg-orange-400 hover:bg-orange-500 px-5 py-1 rounded-full flex justify-between items-center gap-3 cursor-pointer">
-              <Link
-                to="/checkout"
-                className="flex justify-between items-center"
+            <Link 
+                to="/checkout" className="bg-orange-400 hover:bg-orange-500 px-5 py-1 hover:shadow-lg rounded-full flex justify-between items-center gap-3 cursor-pointer">
+              <div
+                className=" flex justify-between items-center "
               >
-                <BsFillCartFill size={20} className="mr-4" />
-                <h1>| {items.length}</h1>
-              </Link>
-            </div>
+                <FaShoppingCart size={25} className="mr-1" />
+                <div className="flex justify-center item-center w-6 h-6 rounded-full bg-orange-600"><span className="text-sm font-bold text-white">{items.length > 0 ? (items.length):(<p></p>)}</span></div>
+              </div>
+            </Link>
           </div>
         </div>
         {/* Mobile Menu */}

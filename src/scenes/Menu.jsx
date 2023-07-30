@@ -2,10 +2,16 @@ import React from "react";
 import { food  } from "../data/data.js";
 import FoodCard from "../components/FoodCard.jsx";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 function Menu() {
+   // Scroll to top on component mount
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div class="container mt-28 lg:mt-12 mx-auto p-5 ">
+    <div className="container mt-28 lg:mt-12 mx-auto p-5 ">
     <div className="px-6 lg:mx-5 lg:mt-6">
       {/*Header*/}
       <div className="flex justify-between items-center">
@@ -14,7 +20,7 @@ function Menu() {
         </h1>
         <Link to="/categories" className="flex justify-center items-center p-1 cursor-pointer hover:shadow-sm text-orange-500">
         <div className="">View Categories</div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
           </Link>

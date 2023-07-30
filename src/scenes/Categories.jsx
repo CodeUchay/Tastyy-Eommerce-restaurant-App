@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { categories } from "../data/data.js";
 import { useNavigate,  } from "react-router-dom";
 
@@ -8,6 +8,11 @@ function Categories() {
   const handleCategoryClick = (category) => {
     navigate(`/categories/${category}`);
   };
+
+   // Scroll to top on component mount
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container relative mt-24 lg:mt-6 mx-auto p-5 ">
@@ -20,7 +25,7 @@ function Categories() {
       </div>
       
         {/* Categories */}
-        <div className="m-5  lg:m-10 lg:p-8 grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
+        <div className="m-5 cursor-pointer lg:m-10 lg:p-8 grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
           {categories.map((item, index) => (
             <div
               key={index}

@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 // It slices just the last 4 array of food
 function LatestMenu() {
   return (
-    <div class="container mt-28 lg:mt-12 mx-auto p-5 ">
+    <div className="container mt-28 lg:mt-12 mx-auto p-5 ">
     <div className="px-6 lg:mx-5 lg:mt-6">
       {/*Header*/}
       <div className="flex justify-between items-center">
@@ -26,7 +26,7 @@ function LatestMenu() {
       <div className="bg-white rounded p-6 lg:p-0">
       {/* Display foods */}
       <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 lg:m-5 lg:p-8 gap-6 bg-transparent rounded-2xl">
-        {food.slice(-4).map((item, index) => (
+        {food.slice(-3).map((item, index) => (
           <FoodCard key={index} item={item} />
         ))}
       </div>

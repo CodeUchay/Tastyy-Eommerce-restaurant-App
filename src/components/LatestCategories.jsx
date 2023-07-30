@@ -10,7 +10,7 @@ const handleCategoryClick = (category) => {
 navigate(`/categories/${category}`);
 }
   return (
-    <div class="container relative mx-auto p-5 ">
+    <div className="container relative mx-auto p-5 ">
     <div className="px-6 lg:mt-6">
       {/*Header*/}
       <div className="flex justify-between items-center">
@@ -27,7 +27,7 @@ navigate(`/categories/${category}`);
       <hr className="my-6"></hr>
         {/* Categories */}
         <div className="m-5 lg:m-10 lg:p-8 grid grid-cols md:grid-cols-3 gap-6 py-6 ">
-          {categories.slice(0,4).map((item, index) => (
+          {categories.slice(0,3).map((item, index) => (
             <div
               key={index}
               onClick={() => handleCategoryClick(item.name.toLowerCase())}
