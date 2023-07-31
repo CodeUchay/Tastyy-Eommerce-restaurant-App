@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../CartContext";
 import { useNavigate } from "react-router-dom";
-
+import {AiOutlineCheck} from 'react-icons/ai'
 const FoodCard = ({ item }) => {
   const { addToCart } = useContext(CartContext);
   const [addedItem, setAddedItem] = useState(false);
@@ -15,14 +15,14 @@ const FoodCard = ({ item }) => {
 
     setTimeout(() => {
       setAddedItem(false);
-    }, 1500);
+    }, 2500);
   };
-  
+
   const handleFoodClick = () => {
     navigate(`/menu/${item.id}`);
   };
   return (
-    <div onClick={handleFoodClick} className="cursor-pointer rounded-2xl hover:shadow-ll shadow-red-100 hover:shadow-red-200  shadow-lg">
+    <div onClick={handleFoodClick} className="cursor-pointer rounded-2xl shadow-orange-200 hover:shadow-2xl hover:scale-105 duration-500 shadow-lg">
       {/* food container */}
       <div className="">
         <img
@@ -36,16 +36,21 @@ const FoodCard = ({ item }) => {
         <h2 className="md:text-2xl lg:text-xl font-bold border-b border-b-gray-300">
           {item.name}
         </h2>
-        <p className="text-xs">From:{"N2,999"}</p>
+        <p className="text-sm">Price: <b>${item.price}</b></p>
         <div className="flex gap-4 items-center">
           <button
             onClick={handleAddToCart}
-            className="border-none bg-orange-400 rounded p-2 hover:bg-orange-500"
+            className="border-none bg-orange-400 rounded p-2 hover:bg-orange-500 relative"
           >
             Add to Cart
           </button>
-          {addedItem ? <h3 className="font-bold"> Added! </h3> : null}
-        </div>
+          {addedItem && (
+            <div
+              className="font-bold flex items-center absolute left-32 bg-green-500 text-white rounded p-2 transition-transform duration-300 animate-bounce"
+            >
+              <h1>Added to Cart</h1> <AiOutlineCheck/>
+            </div>
+          )}</div>
       </div>
     </div>
   );

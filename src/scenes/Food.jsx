@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { food } from "../data/data";
 import CartContext from "../CartContext";
+import {AiOutlineCheck} from 'react-icons/ai'
 
 function Food() {
   const [foodId, setFoodId] = useState("");
@@ -38,7 +39,7 @@ function Food() {
         {/*Header*/}
         <div className="flex justify-between items-center">
           <h1 className="font-bold text-2xl lg:text-3xl text-left">
-            Food <span className="text-orange-500">Item</span>
+            Menu <span className="text-orange-500">Item</span>
           </h1>
           <Link
             to="/menu"
@@ -73,16 +74,21 @@ function Food() {
                 <h2 className=""><u>Description</u></h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni voluptates ea vel officiis minima dolorum quae nostrum culpa? Dolores soluta facere sapiente aliquid, esse at illo temporibus ea quaerat.</p>
                 </div>
-                <div><b>Price:</b> {foods.price}</div>
+                <div><b>Price:</b> <span  className="font-semibold">${foods.price}</span></div>
                 <div className="flex flex-row gap-3 justify-start items-center">
                 <button
             onClick={handleAddToCart}
-            className="border-none bg-orange-400 rounded p-2 hover:bg-orange-500"
+            className="border-none bg-orange-400 rounded p-2 hover:bg-orange-500 relative"
           >
             Add to Cart
           </button>
-          {addedItem ? <h3 className="font-bold"> Added! </h3> : null}
-          </div>
+          {addedItem && (
+            <div
+              className="font-bold flex items-center absolute left-40 md:left-64 lg:left-32 bg-green-500 text-white rounded p-2 transition-transform duration-300 animate-bounce"
+            >
+              <h1>Added to Cart</h1> <AiOutlineCheck/>
+            </div>
+          )}</div>
               </div>
             ) : (
               <p className="m-4 p-5">

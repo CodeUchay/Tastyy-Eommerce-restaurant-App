@@ -68,13 +68,13 @@ function Footer() {
             <div>
               <h6 className="font-medium text-orange-500">Support</h6>
               <ul>
-                <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
+                <li className="py-2 text-sm ">
                   About
                 </li>
-                <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
+                <li className="py-2 text-sm ">
                   FAQ
                 </li>
-                <li className="py-2 text-sm hover:text-orange-600 cursor-pointer">
+                <li className="py-2 text-sm ">
                   Ts&Cs
                 </li>
               </ul>

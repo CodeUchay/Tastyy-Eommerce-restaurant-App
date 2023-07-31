@@ -1,17 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../CartContext";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const { items, removeFromCart, getCartItemDetails, clearCart } = useContext(CartContext);
+  const [rejectPayment, setRejectPayment] = useState(false);
 
   const handleRemoveFromCart = (id) => {
     removeFromCart(id);
   };
-
+  
   const cartItemDetails = getCartItemDetails();
 
+  const total = cartItemDetails.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  
   const handleClearAll = () => {
     clearCart();
     localStorage.removeItem("oldcart"); // Clear cart items from local storage
@@ -117,7 +121,7 @@ const Checkout = () => {
               {/* Total */}
               <div className="flex justify-between mt-5">
                 <h3 className="">Total:</h3>
-                <p className="text-2xl font-bold">${100}</p>
+                <p className="text-2xl font-bold">${total.toFixed(2)}</p>
               </div>
                {/* Clear all */}
             <div className="mt-3">
@@ -127,8 +131,17 @@ const Checkout = () => {
                     Clear All
                   </button>
                 </div>
+                <div className="mt-10 flex justify-center">
+                <button  
+                  onClick={() => setRejectPayment(true)}
+                  className="py-1 rounded-lg px-4 bg-orange-400 text-white hover:bg-orange-500 hover:text-white hover:border-none">
+                    Proceed with payment
+                  </button>
+                  </div>
+                  <div className="mt-2 flex justify-center">
+                  {rejectPayment ? (<p className="text-red-500 text-sm animate-bounce">Invalid payment details</p>):(<p></p>)}
             </div>
-           
+            </div>
             {/* Shipping */}
             <div className="mt-5 p-5 border border-gray-200">
               <h1 className="font-bold mb-2">Shipping:</h1>
