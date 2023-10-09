@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../CartContext";
 import { useNavigate } from "react-router-dom";
-import {AiOutlineCheck} from 'react-icons/ai'
+import {AiOutlineCheck} from 'react-icons/ai';
+
 const FoodCard = ({ item }) => {
   const { addToCart } = useContext(CartContext);
   const [addedItem, setAddedItem] = useState(false);
+
   const navigate = useNavigate();
 
   const handleAddToCart = (e) => {
@@ -32,7 +34,7 @@ const FoodCard = ({ item }) => {
         />
       </div>
       {/* Details of Food, Price and Cart */}
-      <div className="flex p-2 flex-col gap-2 items-start">
+      <div className="flex px-5 pb-5 pt-2 flex-col gap-2 items-start">
         <h2 className="md:text-2xl lg:text-xl font-bold border-b border-b-gray-300">
           {item.name}
         </h2>
@@ -46,9 +48,9 @@ const FoodCard = ({ item }) => {
           </button>
           {addedItem && (
             <div
-              className="font-bold flex items-center absolute left-32 bg-green-500 text-white rounded p-2 transition-transform duration-300 animate-bounce"
-            >
-              <h1>Added to Cart</h1> <AiOutlineCheck/>
+              className={`fixed bottom-0 left-0 right-0 bg-green-500 rounded flex justify-center items-center gap-3 text-white p-4 transform transition-transform duration-300 ease-in-out translate-y-full
+              `}>
+              <h1>Added to Cart</h1> <AiOutlineCheck size={24}/>
             </div>
           )}</div>
       </div>

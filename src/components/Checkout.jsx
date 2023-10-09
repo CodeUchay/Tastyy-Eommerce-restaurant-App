@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 const Checkout = () => {
   const { items, removeFromCart, getCartItemDetails, clearCart } = useContext(CartContext);
   const [rejectPayment, setRejectPayment] = useState(false);
-
+  const [invalidCode, setInvalidCode] = useState(false)
   const handleRemoveFromCart = (id) => {
     removeFromCart(id);
   };
   
+  const handleVoucher = () =>{
+    setInvalidCode(!invalidCode)
+  }
   const cartItemDetails = getCartItemDetails();
 
   const total = cartItemDetails.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -112,10 +115,13 @@ const Checkout = () => {
                     type="text"
                     placeholder="Discount Voucher..."
                   />
-                  <button className="bg-blue-500 text-white rounded-lg px-5 hover:bg-blue-600 hover:text-white hover:border-none">
+                  <button 
+                  onClick={handleVoucher}
+                  className="bg-blue-500 text-white rounded-lg px-5 hover:bg-blue-600 hover:text-white hover:border-none">
                     Apply
                   </button>
                 </div>
+                {invalidCode && (<p className="text-red">Invalid Voucher Code</p>)}
               </div>
               <hr />
               {/* Total */}
