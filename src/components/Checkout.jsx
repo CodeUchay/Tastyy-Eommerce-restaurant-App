@@ -82,7 +82,7 @@ const Checkout = () => {
                             className="w-16 h-16 mr-4"
                           />
                         </div>
-                        <div className="flex justify-start items-center gap-4 ">
+                        <div className="flex justify-start items-center gap-4 px-1">
                           <div className="flex flex-col">
                             <h3 className="text-sm">
                               {item.name}
